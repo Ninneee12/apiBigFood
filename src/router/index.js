@@ -14,14 +14,14 @@ const routes = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/LoginView.vue')
-  },
-  {
     path: '/cadastro',
     name: 'cadastro',
     component: () => import('../views/CadastroView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginView.vue')
   }
 ]
 
