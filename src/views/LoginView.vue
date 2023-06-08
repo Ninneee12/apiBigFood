@@ -1,119 +1,62 @@
 <template>
-    <section class="login">
-        <div>
-            <form>
-                <input type="text" name="nome" placeholder="Nome de Usuário" id="login">
-                <input type="password" name="senha" placeholder="Senha" id="password">
-                <button @click="logar()">Entrar</button>
-            </form>
-            <a href="*">Esqueceu sua senha?</a>
-        </div>
-    </section>
-    </template>
-    <script> 
+    <div>
+        <form @submit.prevent="realizarLogin">
+            <input type="text" id="usuario" v-model="usuario" placeholder="Usuário">
+            <br>
+            <input type="password" id="senha" v-model="senha" placeholder="Senha">
+            <br>
+            <button type="submit">Login</button>
+            <a href="#">Esqueceu sua senha?</a> <br>
+            <a href="#">Fazer cadastro</a>
+        </form>
+    </div>
+</template>
 
-    import LoginPage from '../components/LoginPage.vue'
+<script>
 
     export default {
-    name: 'LoginView',
-    components: {
-        LoginPage
-    }
-    }
-
-    function logar(){
-        let login = document.getElementsById('login').value;
-        let password = document.getElementById('password').value;
-
-        if(
-            login == "sofia@gmail" && password == "sofia123"){
-                alert('Logado com sucesso')
+        data(){
+            return{
+                usuario: '',
+                senha: ''
+            };
+        },
+        methods: {
+            realizarLogin(){
+                if(this.usuario === 'sofia' && this.senha === 'sofia123'){
+                    alert('Login realizado com sucesso!');
+                } else {
+                    alert('Usuario ou senha incorretos.');
+                }
             }
-        else {
-            alert('Usuário ou senha incorretos')
         }
-    }
+    };
 
-    </script>
+</script>
 
-    <style scoped>
-    
-
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-.login {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;    
-}
-
-.login img{
-    width: 90px;
-    margin-bottom: 30px;
-}
-
-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 420px;
-    height: 470px;
-    border-radius: 10px;
-}
+<style>
 
 form {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 35px;
+    justify-content: center;
 }
 
-input{
-    margin: 20px;
-    background-color: rgb(255, 255, 255);
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding-left: 10px;
-}
-
-input:focus{
-    border: 1px solid rgba(188, 72, 255, 0.671);
-}
-
-input::placeholder {
-    font-weight: 200;
-}
-
-button{
-    background-color: rgb(255, 128, 0);
+input {
     margin-top: 15px;
+    height: 35px;
+}
+
+
+button {
+    margin-top: 15px;
+    height: 35px;
+    width: 50%;
+    transform: translate(50%);
     margin-bottom: 15px;
-    cursor: pointer;
-    height: 55px;
-    width: 200px;
-    margin-left: 100px;
-    color: white;
-    font-weight: 300;
-    font-size: 18px;
-    padding-right: 10px;
-    border-radius: 10px;
-    border: none;
 }
 
-
-a{
-    text-decoration: none;
-    color: rgb(122, 122, 122);
-    font-weight: 200;
-}
-
-a:hover {
-    font-weight: 300;
-}
 </style>
