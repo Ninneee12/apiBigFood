@@ -1,15 +1,13 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">Sobre</router-link> |
-    <router-link to="/cadastro">Cadastre um Botequim</router-link> |
-    <router-link to="/login">Login</router-link>
-  </nav>
-  <router-view/>
+  <Header></Header>
+  <router-view />
 </template>
 
+<script setup>
+import Header from "@/views/Header.vue";
+</script>
 <style>
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -21,7 +19,6 @@
   text-align: center;
   color: #2c3e50;
 }
-
 
 nav {
   padding: 30px;
